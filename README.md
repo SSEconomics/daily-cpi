@@ -3,11 +3,11 @@
 This repository provides Stata and R tools to interpolate monthly average Consumer Price Index (CPI) to the daily frequency. This allows for the construction of daily real series—such as real commodity prices.
 
 ## ⚠️ The Problem with Standard Monthly CPI
-Consumer Price Index (CPI) measures are universally published as monthly averages. We do not want to simply deflate daily nominal prices directly by a static monthly average CPI, as this would create artificial step-functions at the start of every month. To use real daily data, we need a measure of daily CPI.
+Consumer Price Index (CPI) measures are universally published as monthly observations. We do not want to simply deflate daily nominal prices directly by a monthly average CPI, as this would create artificial step-functions at the start of every month. To use real daily data, we need a measure of daily CPI.
 
 ## 📊 Dataset (Daily CPI and Real Prices.xlsx)
 
-If you do not need to execute the interpolation routines yourself, you can directly download the pre-calculated dataset (`Daily CPI and Real Prices.xlsx`). This file provides the interpolated daily US CPI alongside deflated real daily crude oil prices (1973–Present).
+`Daily CPI and Real Prices.xlsx` provides the interpolated daily US CPI alongside deflated real daily crude oil prices (1973–Present). 
 
 **Dataset Variables:**
 * `mydate`: The daily date (aligned to business trading days).
