@@ -48,7 +48,17 @@ The Stata code utilizes business calendars to handle missing trading days before
 * **`Startagaind.do` (Daily Data Import)** A subscript called by the main file. It imports tabs of daily nominal data from an Excel workbook containing daily WTI, Brent, and CAD. *(Note: The sheet tabs and variable names need to match exactly).* It formats the date strings into Stata time variables and merges them into a unified daily dataset.
 
 ### R Implementation
-*(Include descriptions for your R scripts here if applicable, e.g., `interpolate_cpi.R` and `example_real_prices.R`, following the same logical steps of data prep, EOM assignment, interpolation, and real price calculation.)*
+
+The R implementation utilizes the `tidyverse` for data manipulation and the `zoo` package for time-series interpolation. 
+
+* **Run: `DailyCPI.R` (Main Execution Script)**
+This script performs the data alignment and interpolation:
+1. **Load Daily Data:** Imports the `cad`, `wti`, and `brent` sheets from `CDataD.xlsx`. By starting with the CAD dataset, it establishes the full daily timeline beginning in 1973.
+2. **Format Dates:** Converts the integer-based daily dates (YYYYMMDD) and the monthly string dates (YYYYMX) into standard R date objects.
+3. **Establish EOM Anchors:** Identifies the maximum available trading day within each month and assigns the monthly CPI value to that specific date.
+4. **Daily Interpolation:** Uses `na.approx` for linear interpolation (matching Stata’s `ipolate`) to create a continuous daily CPI series.
+5. **Calculate Real Prices:** Computes the real daily prices for WTI and Brent crude oil.
+6. **Excel Export:** Saves the final processed data to `Daily CPI and Real Prices.xlsx` using the `writexl` package.
 
 ---
 
