@@ -52,6 +52,11 @@ The Stata code utilizes business calendars to handle missing trading days before
 
 ---
 
+**📥 Required Monthly Data (`MasterFile_CDataM.csv`)** Before running the scripts, you must download the underlying monthly CPI dataset. Because this file is updated and maintained as part of a broader historical dataset, it is hosted in a separate repository.  
+👉 **[Download it from the Backcasted Crude Oil Prices repo](https://github.com/SSEconomics/backcasted-crude-oil-prices)** and place it in your `stata/` folder.
+
+---
+
 ## 📄 Reference
 The code provided here replicates the data construction methodology utilized in:
 
